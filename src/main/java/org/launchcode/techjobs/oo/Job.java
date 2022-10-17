@@ -92,4 +92,36 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+    @Override
+    public String toString() {
+
+        if ((name == "Data not available") &&
+                (this.employer.getValue() == "Data not available") &&
+                (this.location.getValue() == "Data not available") &&
+                (this.positionType.getValue() == "Data not available") &&
+                (this.coreCompetency.getValue() == "Data not available"))
+            return "\n" + "ID: " + id + "\n" + "OOPS! This job does not seem to exist." + "\n";
+
+//        if ((name == null || name == "") &&
+//                (this.employer.getValue() == null || this.employer.getValue() == "") &&
+//                (this.location.getValue() == null || this.location.getValue() == "") &&
+//                (this.positionType.getValue() == null || this.positionType.getValue() == "") &&
+//                (this.coreCompetency.getValue() == null || this.coreCompetency.getValue() == ""))
+//                 return "\n" + "ID: " + id + "\n" + "OOPS! This job does not seem to exist." + "\n";
+
+        if (name == null || name == "") this.name = "Data not available";
+        if (this.employer.getValue() == null || this.employer.getValue() == "") this.employer.setValue("Data not available");
+        if (this.location.getValue() == null || this.location.getValue() == "") this.location.setValue("Data not available");
+        if (this.positionType.getValue() == null || this.positionType.getValue() == "") this.positionType.setValue("Data not available");
+        if (this.coreCompetency.getValue() == null || this.coreCompetency.getValue() == "") this.coreCompetency.setValue("Data not available");
+
+        return "\n" + "ID: " + id +
+                "\n" + "Name: " + name +
+                "\n" + "Employer: " + employer +
+                "\n" + "Location: " + location +
+                "\n" + "Position Type: " + positionType +
+                "\n" + "Core Competency: " + coreCompetency +
+                "\n";
+    }
+
 }
